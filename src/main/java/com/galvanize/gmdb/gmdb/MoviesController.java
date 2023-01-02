@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -32,7 +33,12 @@ public class MoviesController {
     //    so that I can see the list of available movies.
     @GetMapping("/all") 
     public List<Movies> getAllMovies(){
-        return (List<Movies>) this.repository.findAll();
+        return this.repository.findAll();
+    }
+
+    @GetMapping("/{id}") 
+    public Movies getAllMovies(@PathVariable long id){
+        return this.repository.getMovieById(id);
     }
 
 
