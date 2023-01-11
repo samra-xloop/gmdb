@@ -1,11 +1,23 @@
 package com.galvanize.gmdb.gmdb;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.HashMap;
+
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
 
 
 @SpringBootTest
 public class GmdbApplicationTests {
+
+    private MockMvc mock;
+
 
 	// Stories for this project are shown below in order of value, with the highest value listed first.
     // This microservice will contain the CRUD operations required to interact with the GMDB movie database.
@@ -53,9 +65,16 @@ public class GmdbApplicationTests {
     //11. As an admin
     //    I can impersonate a reviewer and do any of the things they can do
     //    so that I can help confused reviewers.
-
+    @Spy
+    HashMap<String,Integer> hashMap;
 	@Test
+    @DisplayName("the test should pass")
 	public void contextLoads() {
+
+        
+        int a=3;
+        int b =3;
+        assertEquals(a, b);
 	}
 
 }

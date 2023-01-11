@@ -1,4 +1,4 @@
-package com.galvanize.gmdb.gmdb;
+package com.galvanize.gmdb.gmdb.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,32 +12,35 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Movies")
-public class Movies {
+@Table(name="movies")
+public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String title;
     private int yearReleased;
     private String genre;
-    private String runtime;
+    private Integer runtime;
 
+    //parent class is movie where we have primary key(id)..... review is child class where the primary key becomes foreign key(movie_id)
     @OneToMany(
-        mappedBy = "Movies",
-        cascade = CascadeType.ALL,
-        orphanRemoval = true
-    )
-    private List<Reviews> reviews = new ArrayList<>();
+        mappedBy = "movie",  // movie is the name of the table in database
+        cascade = CascadeType.ALL
+        // targetEntity = Review.class
+    )    
+    private List<Review> reviews;
 
-    protected Movies(){
+    protected Movie(){
         
     }
 
-    public Movies(String title, int yearReleased, String genre, String runtime) {
+
+    public Movie(String title, int yearReleased, String genre, Integer runtime) {
         this.title = title;
         this.yearReleased = yearReleased;
         this.genre = genre;
@@ -72,12 +75,15 @@ public class Movies {
         this.genre = genre;
     }
 
-    public String getRuntime() {
+    public Integer getRuntime() {
         return runtime;
     }
 
-    public void setRuntime(String runtime) {
+    public void setRuntime(Integer runtime) {
         this.runtime = runtime;
+    }
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
 }
