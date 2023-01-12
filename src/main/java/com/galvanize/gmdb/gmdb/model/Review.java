@@ -22,16 +22,16 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long reviewId;
     // private Long movieId;
-    private Long reviewerId;
+    // private Long reviewerId;
     private String reviewText;
-    
-    @Temporal(TemporalType.DATE)
+
+    @Column(columnDefinition = "date")
     private Date dateTime_last_modified;
     // @ManyToOne(fetch = FetchType.LAZY)
     // // @JoinColumn(name="movieId")
     // private Movies movie;
     @ManyToOne
-    @JoinColumn(name="movies_id",nullable = false)
+    @JoinColumn(name="movie_id",referencedColumnName = "id",nullable = false)
     // @OnDelete(action = OnDeleteAction.CASCADE)
     // @JsonBackReference
     @JsonIgnore
@@ -59,13 +59,13 @@ public class Review {
     //     this.movieId = movieId;
     // }
 
-    public long getReviewerId() {
-        return reviewerId;
-    }
+    // public long getReviewerId() {
+    //     return reviewerId;
+    // }
 
-    public void setReviewerId(long reviewerId) {
-        this.reviewerId = reviewerId;
-    }
+    // public void setReviewerId(long reviewerId) {
+    //     this.reviewerId = reviewerId;
+    // }
 
     public String getReviewText() {
         return reviewText;

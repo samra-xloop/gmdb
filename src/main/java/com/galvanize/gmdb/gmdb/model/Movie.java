@@ -30,8 +30,8 @@ public class Movie {
     //parent class is movie where we have primary key(id)..... review is child class where the primary key becomes foreign key(movie_id)
     @OneToMany(
         mappedBy = "movie",  // movie is the name of the table in database
-        cascade = CascadeType.ALL
-        // targetEntity = Review.class
+        cascade = CascadeType.ALL,
+        targetEntity = Review.class
     )    
     private List<Review> reviews;
 
@@ -82,6 +82,11 @@ public class Movie {
     public void setRuntime(Integer runtime) {
         this.runtime = runtime;
     }
+
+    public List<Review> getReviews(){
+        return this.reviews;
+    }
+
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }

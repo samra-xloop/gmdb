@@ -22,8 +22,7 @@ public class MoviesController {
     @Autowired
     private  IMoviesRepository repository;
 
-    @Autowired
-    private IReviewsRepository reviewRepository;
+    
 
     @PostMapping("")  
     public void createMovies(@RequestBody Movie movie) {
