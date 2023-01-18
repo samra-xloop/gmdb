@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.galvanize.gmdb.gmdb.model.Review;
 
-@Repository
+
 public interface IReviewsRepository extends JpaRepository<Review, Long>{
    
  

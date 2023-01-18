@@ -37,6 +37,13 @@ public class Review {
     @JsonIgnore
     private Movie movie;
 
+    @ManyToOne
+    @JoinColumn(name="reviewer_id",referencedColumnName = "id",nullable = false)
+    // @OnDelete(action = OnDeleteAction.CASCADE)
+    // @JsonBackReference
+    @JsonIgnore
+    private Reviewer reviewer;
+
     protected Review(){}
 
     public Review(String reviewText) {
