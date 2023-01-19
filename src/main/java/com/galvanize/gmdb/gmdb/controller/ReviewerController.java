@@ -28,12 +28,12 @@ public class ReviewerController {
         return repository.findById(id).orElse(null);
     }
 
-    // @PostMapping("")  
-    // public void createMovies(@RequestBody Reviewer reviewer) {
-    //     reviewer.setNumber_of_reviews(0);
-    //     reviewer.setJoining_date(Date.valueOf(LocalDate.now()));
-    //     this.repository.save(reviewer);
-    // }
+    @PostMapping("")  
+    public void createMovies(@RequestBody Reviewer reviewer) {
+        reviewer.setNumber_of_reviews(0);
+        reviewer.setJoining_date(Date.valueOf(LocalDate.now()));
+        this.repository.save(reviewer);
+    }
 
     
 }
