@@ -22,8 +22,9 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String title;
-    private int yearReleased;
+    private Integer yearReleased;
     private String genre;
     private Integer runtime;
 
@@ -47,7 +48,10 @@ public class Movie {
         this.runtime = runtime;
     }
 
-    public long getId() {
+    public void setId(Long id){
+        this.id=id;
+    }
+    public Long getId() {
         return id;
     }
 
@@ -59,7 +63,7 @@ public class Movie {
         this.title = title;
     }
 
-    public int getYearReleased() {
+    public Integer getYearReleased() {
         return yearReleased;
     }
 

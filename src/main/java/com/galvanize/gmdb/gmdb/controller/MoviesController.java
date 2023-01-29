@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,8 +34,8 @@ public class MoviesController {
     // 1. As a user
     //    I can GET a list of movies from GMDB that includes Movie ID | Movie Title | Year Released | Genre | Runtime
     //    so that I can see the list of available movies.
-    @GetMapping("/all") 
-    public List<Movie> getAllMovies(){
+    @GetMapping("all")
+    public List<Movie> getAllMovies() {
         return this.repository.findAll();
     }
     // 2. As a user

@@ -29,7 +29,7 @@ public class ReviewerController {
     }
 
     @PostMapping("")  
-    public void createMovies(@RequestBody Reviewer reviewer) {
+    public void createReviwer(@RequestBody Reviewer reviewer) {
         reviewer.setNumber_of_reviews(0);
         reviewer.setJoining_date(Date.valueOf(LocalDate.now()));
         this.repository.save(reviewer);
